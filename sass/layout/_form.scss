@@ -1,0 +1,47 @@
+@mixin form {
+    img {
+        height: 100%;
+        width: 400px;
+    }
+
+    .form {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
+    .form-right {
+
+        width: 450px;
+        background-color: #fff;
+
+        .container {
+
+            margin: 20px 0 30px 40px;
+            width: 300px;
+            padding: 10px 40px;
+
+            h2 {
+                margin-bottom: 30px;
+                line-height: 1.5;
+            }
+
+            input {
+                width: 250px
+            }
+
+
+
+            #form-text {
+                font-size: 0.8rem;
+                line-height: 1.5;
+            }
+
+            i {
+                padding: 10px;
+                margin-right: 5px;
+                border: 1px solid black;
+            }
+        }
+    }
+}

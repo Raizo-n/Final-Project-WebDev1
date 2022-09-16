@@ -1,0 +1,12 @@
+@mixin button {
+    background-color: tomato;
+    display: block;
+    color: white;
+    border-radius: 10px;
+    border-bottom: 6px solid #9a0413;
+    text-align: center;
+    padding: 15px 35px;
+    transition: 0.3s;
+    position: relative;
+    letter-spacing: normal;
+}

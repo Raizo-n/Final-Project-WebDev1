@@ -1,0 +1,14 @@
+@use "variables" as v;
+
+@mixin heading {
+    text-align: center;
+    color: #000;
+    width: 100%;
+    padding: 20px 0;
+    font-size: 1.5rem;
+}
+
+@mixin list-style {
+    list-style: none;
+    text-decoration: none;
+}

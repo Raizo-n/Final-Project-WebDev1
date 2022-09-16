@@ -1,0 +1,28 @@
+@mixin fade {
+    width: 75%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    opacity: 0;
+    animation: fade 15s infinite;
+}
+
+@mixin animation {
+    @keyframes fade {
+        0% {
+            opacity: 0;
+        }
+        15% {
+            opacity: 10;
+        }
+        30% {
+            opacity: 10;
+        }
+        45% {
+            opacity: 0;
+        }
+        100% {
+            opacity: 0;
+        }
+    }
+}
