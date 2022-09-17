@@ -1,0 +1,433 @@
+@use "abstracts/mixins" as m;
+@use "abstracts/variables" as v;
+
+@use "components/buttons" as b;
+@use "components/fade";
+
+@use "layout/footer";
+@use "layout/form";
+@use "layout/header";
+
+body {
+    margin: 0;
+    background-color: v.$tertiary-color;
+    font-family: 'Playfair Display', serif;
+    letter-spacing: 1px;
+}
+
+hr {
+    width: 80%;
+}
+
+a {
+    text-decoration: none;
+    color: #000;
+}
+
+.section-title {
+    @include m.heading;
+    }
+
+// Header
+header {
+
+    @include header.header;
+
+    .menubar {
+        @include m.list-style;
+        display: flex;
+
+        li {
+            padding: 10px;
+            font-size: 1.2rem;
+        }
+    }
+
+}
+
+// Mainvisual
+.mainvisual {
+    height: 720px;
+    position: relative;
+    padding-bottom: 120px;
+    background-color: v.$primary-color;
+
+    .main-content {
+        position: absolute;
+        top: 280px;
+        left: 10%;
+        z-index: 10;
+
+
+        .contents-text {
+            font-size: 3rem;
+            margin-bottom: 30px;
+            text-shadow: 0 4px 6px v.$white;
+            color: v.$white;
+        }
+
+        .button {
+            @include b.button;
+            font-size: 1.5rem;
+
+            &:hover {
+                opacity: 0.9;
+                transform: scale(1.05);
+            }
+        }
+    }
+
+    .images {
+
+        li {
+            margin-top: 80px;
+            @include fade.fade;
+
+            &:nth-child(1){
+                animation-delay: 0s;
+            }
+
+            &:nth-child(2){
+                animation-delay: 5s;
+            }
+
+            &:nth-child(3){
+                animation-delay: 10s;
+            }
+
+            &::after {
+                content: "";
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                box-shadow: inset 0px 0px 20px 20px v.$primary-color;
+            }
+            img {
+                width: 100%;
+                height: 720px;
+                object-fit: cover;
+            }
+        }
+        @include fade.animation;
+    }
+}
+
+// Reason
+.reasons {
+
+    .reason-headline {
+
+        display: block;
+        margin: 0 auto;
+        width: 40%;
+
+        .section-title{
+            padding-bottom: 0;
+        }
+
+        p {
+            text-align: center;
+            line-height: 1.5rem;
+        }
+
+    }
+
+    .reason-wrapper {
+
+        text-align: center;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        height: 100%;
+
+        .reason-content {
+
+            margin: 80px 20px;
+            padding: 20px;
+
+            i {
+                margin-top: 10px;
+            }
+
+            h3 {
+                margin-top: 30px;
+            }
+        }
+    }
+}
+
+// Testimonials
+.testimonials {
+
+    .content {
+        display: flex;
+        align-items: flex-start;
+        width: 60%;
+        text-align: center;
+        margin: 0 auto 50px auto;
+
+        &:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+        .logo {
+            padding-top: 20px;
+            margin: 0 10px;
+        }
+
+        .occupation {
+            font-size: 0.85rem;
+        }
+
+        .text {
+            background-color: v.$white;
+            border: 1px solid black;
+            border-radius: 10px;
+            margin: 10px 10px 0 10px;
+            padding: 20px;
+            width: 70%;
+        }
+    }
+}
+
+// Signup
+#signup {
+
+    margin-bottom: 50px;
+
+    .section-title{
+    margin-bottom: 30px;
+    }
+
+    img {
+        height: 100%;
+        width: 400px;
+    }
+
+    .form {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
+    .form-right {
+
+        width: 450px;
+        background-color: v.$white;
+
+        .container {
+
+            margin: 20px 0 30px 40px;
+            width: 300px;
+            padding: 10px 40px;
+
+            h2 {
+                margin-bottom: 30px;
+                line-height: 1.5;
+            }
+
+            input {
+                width: 250px
+            }
+
+            .button {
+                @include b.button;
+                width: 20%;
+                margin: 30px 0;
+            }
+
+            #form-text {
+                font-size: 0.8rem;
+                line-height: 1.5;
+            }
+
+            i {
+                padding: 10px;
+                margin-right: 5px;
+                border: 1px solid black;
+            }
+        }
+    }
+}
+
+// Footer
+footer {
+
+    p {
+        text-align: center;
+        padding: 10px 0;
+        // border-top: 1px solid black;
+    }
+
+    @include footer.footer;
+}
+
+
+// Tablet
+@media screen and (min-width: 426px) and (max-width: 768px) {
+
+    .reasons {
+        .reason-headline {
+            width: 70%;
+        }
+
+        .reason-content {
+            margin: 20px!important;
+        }
+
+    }
+
+    #signup {
+
+        .form {
+            margin: 0 auto;
+        }
+
+        .form-left {
+            display: none;
+        }
+
+        .form-right {
+            font-size: 0.8rem;
+            width: 350px;
+
+            .container {
+                text-align: center;
+                padding: 0;
+                margin: 30px auto;
+            }
+
+            #form-text {
+                font-size: 0.5rem!important;
+            }
+
+            .button {
+                margin: 30px auto!important;
+            }
+
+            p {
+                text-align: left;
+                padding-left: 20px;
+            }
+
+        }
+    }
+}
+
+
+/* Mobile */
+@media screen and (max-width: 425px) {
+
+    /* Header */
+    header {
+      justify-content: center;
+
+      nav {
+        display: none;
+      }
+    }
+
+    /* Mainvisual */
+    .mainvisual {
+        .main-content {
+            top: 25%;
+            left: 25%;
+            transform: translate(-15%, 30%);
+
+            .contents-text {
+                text-align: center;
+            }
+        }
+
+        .images {
+            li {
+                width: 100%;
+            }
+        }
+
+    }
+
+    /* Reason */
+    .reasons {
+
+        .reason-headline {
+            width: 80%;
+        }
+
+        .reason-wrapper {
+
+            flex-wrap: wrap;
+
+            .reason-content {
+                margin: 20px auto!important;
+            }
+        }
+    }
+
+    /* Testimonials */
+    .testimonials {
+        .content {
+            flex-direction: column;
+
+            &:nth-child(even) {
+                flex-direction: column;
+            }
+
+            .logo {
+                margin: 0 auto;
+            }
+        }
+
+    }
+
+    /* Form  */
+    #signup {
+
+        .form {
+            margin: 0 auto;
+        }
+
+        .form-left {
+            display: none;
+        }
+
+        .form-right {
+            font-size: 0.8rem;
+            width: 350px!important;
+
+            .container {
+                text-align: center;
+                padding: 0!important;
+                margin: 20px auto!important;
+            }
+
+            #form-text {
+                font-size: 0.5rem!important;
+            }
+
+            .button {
+                margin: 30px auto!important;
+            }
+
+            p {
+                text-align: left;
+                padding-left: 20px!important;
+            }
+
+        }
+    }
+
+    // Footer
+    footer {
+        .footer {
+            border: none;
+        }
+
+        .content {
+            display: none;
+        }
+    }
+}
+
